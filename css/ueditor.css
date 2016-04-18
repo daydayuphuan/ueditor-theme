@@ -1,4 +1,11 @@
 ﻿/* common layer */
+.edui-hg {
+  font-size: 16px;
+  width: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .edui-hg .edui-box {
   border: none;
   padding: 0;
@@ -24,8 +31,7 @@
 }
 .edui-box {
   position: relative;
-  display: -moz-inline-box !important;
-  display: inline-block !important;
+  display: inline-block;
   vertical-align: top;
 }
 /* 清除浮动 */
@@ -58,8 +64,9 @@
 }
 .edui-hg .edui-popup .edui-bordereraser {
   position: absolute;
+  z-index: 1000;
 }
-.edui-hg .edui-popup .edui-bordereraser:before {
+.edui-hg .edui-popup .edui-bordereraser::before {
   position: absolute;
   top: -1.25em;
   left: 0.75em;
@@ -99,7 +106,7 @@
 }
 /*UI工具栏、编辑区域、底部*/
 .edui-editor {
-  border: 1px solid #ccc;
+  border: 1px solid #5eb95e;
   background-color: #fff;
   position: relative;
   overflow: visible;
@@ -109,13 +116,13 @@
   position: relative;
 }
 .edui-editor-toolbarbox .edui-editor-toolbarboxouter {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #5eb95e;
   background-color: #fff;
   background-repeat: repeat-x;
   border-radius: 4px 4px 0 0;
 }
 .edui-editor-toolbarbox .edui-editor-toolbarboxinner {
-  padding: 0.125em;
+  padding: 0.25em;
 }
 .edui-editor-toolbarbox .edui-toolbar {
   position: relative;
@@ -129,6 +136,13 @@
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  /*> .edui-box:not(.edui-separator):nth-child(odd) {
+            background-color: @btn-bg-color;
+        }
+
+        > .edui-box:not(.edui-separator):nth-child(even) {
+            background-color: @btn-bg-hover;
+        }*/
 }
 .edui-editor-toolbarbox .edui-toolbar .edui-button,
 .edui-editor-toolbarbox .edui-toolbar .edui-splitbutton,
@@ -137,14 +151,9 @@
   margin: 0;
 }
 .edui-editor-toolbarbox .edui-toolbar > .edui-box {
-  margin: 0.125em;
+  margin: 0.25em;
   color: #fff;
-}
-.edui-editor-toolbarbox .edui-toolbar > .edui-box:not(.edui-separator):nth-child(odd) {
   background-color: #5eb95e;
-}
-.edui-editor-toolbarbox .edui-toolbar > .edui-box:not(.edui-separator):nth-child(even) {
-  background-color: #459f45;
 }
 /* 内容编辑区 */
 .edui-editor-iframeholder {
@@ -162,9 +171,9 @@
 }
 .edui-editor-bottomContainer table td {
   white-space: nowrap;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #5eb95e;
   line-height: 20px;
-  font-size: 12px;
+  font-size: 0.75em;
 }
 .edui-editor-bottomContainer .edui-editor-wordcount {
   text-align: right;
@@ -179,7 +188,6 @@
   width: 100%;
   height: 12px;
   margin-top: 10px;
-  background: url(../images/scale.png) no-repeat;
   cursor: se-resize;
 }
 .edui-editor-bottomContainer .edui-editor-breadcrumb {
@@ -192,11 +200,10 @@
 }
 /* 提示气泡 */
 .edui-bubble .edui-popup-content {
-  border: 1px solid #DCAC6C;
-  background-color: #fff6d9;
+  border: 1px solid #5eb95e;
+  background-color: #5eb95e;
   padding: 5px;
-  font-size: 10pt;
-  font-family: "宋体";
+  font-size: 0.75em;
 }
 /* 工具条提示消息 */
 .edui-editor-toolbarmsg {
@@ -266,15 +273,24 @@
 .edui-colorbutton .edui-colorlump {
   position: absolute;
   overflow: hidden;
-  bottom: 1px;
-  left: 1px;
-  width: 18px;
-  height: 4px;
+  bottom: 0;
+  left: 0.125em;
+  right: 0.125em;
+  height: 3px;
+  opacity: 0.8;
 }
 /* 表情按钮及弹出菜单 去除了表情的下拉箭头 */
+.edui-for-emotion {
+  /*.edui-splitbutton-body .edui-arrow {
+        width: 0;
+    }
+        .edui-state-active .edui-splitborder {
+        border-left: 1px solid transparent;
+    }*/
+}
 .edui-for-emotion .edui-popup-content iframe {
   width: 514px;
-  height: 380px;
+  height: 355px;
   overflow: hidden;
 }
 .edui-for-emotion .edui-popup-content {
@@ -284,71 +300,40 @@
 .edui-for-emotion .edui-splitborder {
   display: none;
 }
-.edui-for-emotion .edui-splitbutton-body .edui-arrow {
-  width: 0;
-}
-.edui-for-emotion .edui-state-active .edui-splitborder {
-  border-left: 1px solid transparent;
-}
 /* 解决嵌套导致的图标问题 */
 .edui-for-insertorderedlist .edui-popup-body .edui-icon,
 .edui-for-lineheight .edui-popup-body .edui-icon,
 .edui-for-rowspacingtop .edui-popup-body .edui-icon,
 .edui-for-rowspacingbottom .edui-popup-body .edui-icon,
 .edui-for-insertunorderedlist .edui-popup-body .edui-icon {
+  content: '';
   background-image: none;
 }
 /*普通按钮样式及状态*/
-.edui-toolbar .edui-button .edui-state-hover .edui-button-wrap {
+.edui-toolbar .edui-button .edui-button-wrap {
+  border: 1px solid #5eb95e;
+  padding: 0.5em;
+  position: relative;
+  -moz-transition: border, background-color 0.3s ease-in-out;
+  -o-transition: border, background-color 0.3s ease-in-out;
+  -webkit-transition: border, background-color 0.3s ease-in-out;
+  transition: border, background-color 0.3s ease-in-out;
+}
+.edui-toolbar .edui-button .edui-button-wrap:hover {
   background-color: #459f45;
   border-color: #459f45;
+}
+.edui-toolbar .edui-button .edui-button-wrap:active {
+  background-color: #5eb95e;
+  border-color: #367b36;
 }
 .edui-toolbar .edui-button .edui-state-checked .edui-button-wrap {
   background-color: #367b36;
   border-color: #3d8d3d;
 }
-.edui-toolbar .edui-button .edui-state-active .edui-button-wrap {
-  background-color: #5eb95e;
-  border-color: #367b36;
-}
-.edui-toolbar .edui-button .edui-button-wrap {
-  border: 1px solid #5eb95e;
-  padding: 0.5em;
-  position: relative;
-}
-/* Split Button */
-.edui-splitbutton-body,
-.edui-menubutton-body {
-  border: 1px solid #5eb95e;
-}
-.edui-splitbutton-body .edui-arrow,
-.edui-menubutton-body .edui-arrow {
-  position: relative;
-}
-.edui-splitbutton-body .edui-arrow:before,
-.edui-menubutton-body .edui-arrow:before {
-  position: relative;
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  top: 0.1em;
-  border: 0.4em solid transparent;
-  border-right-color: #ccc;
-}
 .edui-splitbutton .edui-splitbutton-body,
 .edui-menubutton .edui-menubutton-body {
   padding: 0.5em;
-}
-.edui-state-hover .edui-splitborder {
-  width: 1px;
-}
-.edui-state-active .edui-splitborder {
-  width: 1px;
-  border-left: #367b36;
-}
-.edui-state-opened .edui-splitborder {
-  width: 1px;
 }
 .edui-splitbutton .edui-state-hover .edui-splitbutton-body,
 .edui-menubutton .edui-state-hover .edui-menubutton-body {
@@ -368,13 +353,7 @@
 .edui-splitbutton .edui-state-opened .edui-splitbutton-body,
 .edui-menubutton .edui-state-opened .edui-menubutton-body {
   background-color: #367b36;
-  border-color: #fff;
-}
-/* LIST */
-.edui-list {
-  /*.edui-bordereraser {
-        display: none;
-    }*/
+  border-color: 1px solid #5eb95e;
 }
 .edui-list .edui-state-hover {
   position: relative;
@@ -382,8 +361,12 @@
   border-color: #459f45;
 }
 .edui-list .edui-listitem {
-  border: 1px solid #5eb95e;
   white-space: nowrap;
+}
+.edui-list .edui-listitem.edui-state-hover {
+  color: #fff;
+  background-color: #5eb95e;
+  border-color: #459f45;
 }
 .edui-list .edui-listitem .edui-listitem-label {
   font-size: 0.75em;
@@ -392,9 +375,6 @@
 /* MENU */
 .edui-menu {
   z-index: 3000;
-}
-.edui-menu.edui-popup {
-  margin-top: 0;
 }
 .edui-menu .edui-hassubmenu .edui-arrow {
   height: 1em;
@@ -408,19 +388,17 @@
   padding: 0.25em;
   cursor: default;
   vertical-align: top;
-  border: 1px solid #5eb95e;
 }
 .edui-menu .edui-menu-body .edui-menuitem:not(.edui-menuseparator).edui-state-hover {
-  background-color: #fff5d4;
+  color: #fff;
+  background-color: #5eb95e;
   border-color: #459f45;
-}
-.edui-menu .edui-menu-body .edui-menuitem:not(.edui-menuseparator) .edui-menuitem-body {
-  line-height: 1;
 }
 .edui-menu .edui-menu-body .edui-menuitem:not(.edui-menuseparator) .edui-icon {
   width: 1em;
   height: 1em;
-  top: 0.125em;
+  top: 0.25em;
+  font-size: 0.75em;
 }
 .edui-menu .edui-menu-body .edui-menuitem:not(.edui-menuseparator) .edui-label {
   font-size: 0.8em;
@@ -438,30 +416,13 @@
 }
 /* COMBOX */
 .edui-combox .edui-combox-body {
-  border: 1px solid #5eb95e;
   padding: 0.5em;
 }
 .edui-combox .edui-combox-body .edui-button-body {
   white-space: nowrap;
-  width: 60px;
-  line-height: 1.375em;
-  font-size: 0.75em;
-  margin-right: 0.5em;
-}
-.edui-combox .edui-combox-body .edui-arrow {
-  position: relative;
-  /*width: 9px;
-            height: 1em;*/
-}
-.edui-combox .edui-combox-body .edui-arrow:before {
-  position: relative;
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  top: 0.1em;
-  border: 0.4em solid transparent;
-  border-right-color: #ccc;
+  width: 4em;
+  line-height: 1.5em;
+  font-size: 1em;
 }
 .edui-combox .edui-combox-body .edui-splitborder {
   display: none;
@@ -514,17 +475,39 @@
   background-color: #459f45;
   border-color: #459f45;
 }
-.edui-state-hover .edui-splitborder {
-  width: 1px;
+.edui-state-opened .edui-combox-body .edui-arrow,
+.edui-state-opened .edui-splitbutton-body .edui-arrow,
+.edui-state-opened .edui-menubutton-body .edui-arrow {
+  top: 0.5em;
 }
-.edui-state-opened .edui-combox-body .edui-arrow:before {
-  top: 0.35em;
+.edui-state-opened .edui-combox-body .edui-arrow::before,
+.edui-state-opened .edui-splitbutton-body .edui-arrow::before,
+.edui-state-opened .edui-menubutton-body .edui-arrow::before {
   border-right-color: transparent;
-  border-top-color: #ccc;
+  border-top-color: #fff;
 }
-.edui-state-opened .edui-splitborder {
-  width: 1px;
-  border: 0;
+.edui-combox-body,
+.edui-splitbutton-body,
+.edui-menubutton-body {
+  border: 1px solid #5eb95e;
+}
+.edui-combox-body .edui-arrow,
+.edui-splitbutton-body .edui-arrow,
+.edui-menubutton-body .edui-arrow {
+  position: relative;
+  top: 0.35em;
+  margin-left: 0.5em;
+}
+.edui-combox-body .edui-arrow::before,
+.edui-splitbutton-body .edui-arrow::before,
+.edui-menubutton-body .edui-arrow::before {
+  position: relative;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border: 0.4em solid transparent;
+  border-right-color: #fff;
 }
 /* ICONS */
 @font-face {
@@ -535,8 +518,7 @@
 }
 .edui-icon {
   width: 1em;
-  height: 1em;
-  font-size: 1em;
+  font-size: 1.5em;
   font-family: 'ueditor-hg';
   speak: none;
   font-style: normal;
@@ -900,24 +882,36 @@
   padding: 0.75em;
 }
 .edui-dialog-titlebar {
+  font-size: 1em;
+  line-height: 1.5;
   cursor: move;
   position: relative;
   padding: 0.75em;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e6e6e6;
 }
 .edui-dialog-caption {
   font-weight: bold;
-  font-size: 12px;
 }
 .edui-dialog-closebutton {
   position: absolute !important;
-  right: 5px;
-  top: 3px;
+  top: 0.75em;
+  right: 0.75em;
 }
 .edui-dialog-closebutton .edui-button-body {
-  height: 20px;
-  width: 20px;
   cursor: pointer;
+}
+.edui-dialog-closebutton .edui-button-body .edui-icon {
+  font-size: 0.5em;
+  padding: 0.5em;
+  color: #fff;
+  background-color: #ccc;
+  border-radius: 2em;
+}
+.edui-dialog-closebutton .edui-button-body .edui-icon::before {
+  content: '\e962';
+}
+.edui-dialog-closebutton .edui-state-hover .edui-button-body .edui-icon {
+  background-color: #808080;
 }
 .edui-dialog-buttons {
   overflow: hidden;
@@ -926,18 +920,33 @@
   float: right;
   margin-left: 1em;
 }
+.edui-dialog-buttons .edui-button.edui-okbutton .edui-button-body {
+  color: #fff;
+  background-color: #5eb95e;
+}
+.edui-dialog-buttons .edui-button.edui-okbutton .edui-button-body:hover {
+  background-color: #367b36;
+}
+.edui-dialog-buttons .edui-button.edui-okbutton .edui-button-body:active {
+  background-color: #459f45;
+}
 .edui-dialog-buttons .edui-button .edui-button-body {
-  font-size: 0.8em;
+  font-size: 1em;
   padding: 0.75em 2em;
   background-color: #eee;
+  border-radius: 0.25em;
   text-align: center;
   cursor: default;
+  transition: background-color 0.3s ease-in-out;
 }
-.edui-dialog-buttons .edui-button .edui-state-hover .edui-button-body {
+.edui-dialog-buttons .edui-button .edui-button-body:hover {
+  background-color: #bbbbbb;
+}
+.edui-dialog-buttons .edui-button .edui-button-body:active {
   background-color: #d5d5d5;
 }
-.edui-dialog-buttons .edui-button .edui-state-active .edui-button-body {
-  background-color: #e1e1e1;
+.edui-dialog-buttons .edui-button .edui-button-body .edui-icon {
+  display: none !important;
 }
 .edui-dialog iframe {
   border: 0;
@@ -1098,14 +1107,14 @@
   width: auto;
   height: auto;
 }
-.edui-popup .edui-shadow {
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
+/*.edui-popup .edui-shadow {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}*/
 .edui-popup-content {
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
   padding: 0.5em;
   background: #fff;
 }
@@ -1279,15 +1288,6 @@
   opacity: .8;
 }
 /* ���񵯳��˵� */
-.edui-for-inserttable .edui-splitborder {
-  display: none;
-}
-.edui-for-inserttable .edui-splitbutton-body .edui-arrow {
-  width: 0;
-}
-.edui-toolbar .edui-for-inserttable .edui-state-active .edui-splitborder {
-  border-left: 1px solid transparent;
-}
 .edui-tablepicker .edui-infoarea {
   height: 14px;
   line-height: 14px;

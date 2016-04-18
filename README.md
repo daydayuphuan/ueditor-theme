@@ -11,7 +11,7 @@
 
 ##使用方法
 1. 将文件添加到`ueditor` > `themes`
-2. 修改`ueditor.config.js`里面的`theme`,`themePaht`配置项
+2. 修改`ueditor.config.js`里面的`theme` , `themePath`配置项
 ```javascript
 , theme: 'hg'
 , themePath: URL + "themes/"

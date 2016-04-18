@@ -1,43 +1,8 @@
 @import '../var.less';
 
-/* Split Button */
-
-.edui-splitbutton-body,
-.edui-menubutton-body {
-    border: @border;
-
-    .edui-arrow {
-        position: relative;
-
-        &:before {
-            position: relative;
-            content: '';
-            display: block;
-            width: 0;
-            height: 0;
-            top: 0.1em;
-            border: 0.4em solid transparent;
-            border-right-color: @arrow-color;
-        }
-    }
-}
-
 .edui-splitbutton .edui-splitbutton-body,
 .edui-menubutton .edui-menubutton-body {
     padding: @btn-split-padding;
-}
-
-.edui-state-hover .edui-splitborder {
-    width: 1px;
-}
-
-.edui-state-active .edui-splitborder {
-    width: 1px;
-    border-left: @border-active-color;
-}
-
-.edui-state-opened .edui-splitborder {
-    width: 1px;
 }
 
 .edui-splitbutton .edui-state-hover .edui-splitbutton-body,

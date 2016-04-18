@@ -15,11 +15,15 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     margin: 0;
     padding: 0;
     outline: 0;
-    font-size: 100%;
 }
 
 body {
     line-height: 1;
+    background-color: #fff;
+    color: #363636;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 ol, ul {
@@ -43,13 +47,7 @@ table {
     border-spacing: 0;
 }
 
-/*module
-*/
-body {
-    background-color: #fff;
-    font: 12px/1.5 sans-serif, "宋体", "Arial Narrow", HELVETICA;
-    color: #646464;
-}
+
 
 /*tab*/
 .tabhead {
@@ -58,43 +56,23 @@ body {
 }
 
 .tabhead span {
+    font-size: 0.8em;
     display: inline-block;
-    padding: 0 5px;
-    height: 30px;
+    padding: 1em;
     border: 1px solid #ccc;
-    background: url("images/dialog-title-bg.png") repeat-x;
     text-align: center;
-    line-height: 30px;
     cursor: pointer;
-    *margin-right: 5px;
 }
 
 .tabhead span.focus {
-    height: 31px;
     border-bottom: none;
-    background: #fff;
+    position: relative;
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
 }
 
 .tabbody {
     position: relative;
-    top: -1px;
     margin: 0 auto;
     border: 1px solid #ccc;
-}
-
-/*button*/
-a.button {
-    display: block;
-    text-align: center;
-    line-height: 24px;
-    text-decoration: none;
-    height: 24px;
-    width: 95px;
-    border: 0;
-    color: #838383;
-    background: url(../../themes/default/images/icons-all.gif) no-repeat;
-}
-
-a.button:hover {
-    background-position: 0 -30px;
 }

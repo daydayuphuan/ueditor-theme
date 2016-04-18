@@ -1,10 +1,10 @@
-﻿@btn-icon-size: 1em;
-@btn-margin: 0.125em;
+﻿@btn-icon-size: 1.5em;
+@btn-margin: 0.25em;
 @btn-padding: 0.5em;
 @btn-split-padding: 0.5em;
-@btn-combox-font-size: 0.75em;
-@btn-combox-line-height: 1.375em;
-@btn-combox-width: 60px;
+@btn-combox-font-size: 1em;
+@btn-combox-line-height: 1.5em;
+@btn-combox-width: 4em;
 
 @btn-bg-color: #5eb95e;
 @btn-bg-hover: darken(@btn-bg-color,10%);
@@ -20,37 +20,47 @@
 @btn-border-open-color: #fff;
 
 
-
 //border
 @border: @btn-border;
 @border-hover-color: @btn-border-hover-color;
 @border-active-color: @btn-border-active-color;
 @border-checked-color: @btn-border-checked-color;
-@border-open-color: #fff;
+@border-open-color: @btn-border;
 
 //popup
 @popup-arrow-color: #fff;
-@arrow-color: #ccc;
+@arrow-color: @popup-arrow-color;
+
+//edui-editor
+@edui-editor-border: 1px solid #5eb95e;
+@edui-editor-bgc: #fff;
+@edui-editor-bottom-border: @edui-editor-border;
 
 //toolbar
 @toolbarbox-outer-bg: #fff;
-@toolbarbox-outer-order: 1px solid #ccc;
+@toolbarbox-outer-order: 1px solid #5eb95e;
 
 //dialog
 @dialoag-bg: #fff;
 @dialoag-title-bg: darken(@dialoag-bg, 10%);
 @dialoag-title-padding: 0.75em;
-@dialoag-title-border: 1px solid #ccc;
+@dialoag-title-border: 1px solid darken(@dialoag-bg, 10%);
 @dialoag-footer-bg: darken(@dialoag-title-bg, 10%);
 @dialoag-footer-padding: @dialoag-title-padding;
-@dialoag-footer-btn-font-size: 0.8em;
+@dialoag-footer-btn-font-size: 1em;
 @dialoag-footer-btn-padding: 0.75em 2em;
 @dialoag-footer-btn-bg: #eee;
+@dialog-footer-btn-ok-bg: #5eb95e;
+@dialog-footer-btn-ok-color: #fff;
 
 //menu
 @menu-body-minwidth: 170px;
 @menu-item-padding: 0.25em;
-@menu-item-hover-bg: #fff5d4;
+@menu-item-hover-bg: #5eb95e;
+@menu-item-hover-color: #fff;
+
+//popup
+@popup-border:1px solid #ccc;
 
 //icons
 @icon-font-family: 'ueditor-hg';
@@ -175,5 +185,5 @@
 @icon-outdent-content: '\f121';
 @icon-delete-content: '\f121';
 
-
+@icon-close-content: '\e962';
 

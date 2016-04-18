@@ -1,4 +1,12 @@
 ﻿/* common layer */
+.edui-hg {
+    font-size: 16px;
+    width: auto;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 .edui-hg .edui-box {
     border: none;
     padding: 0;
@@ -30,8 +38,7 @@
 
 .edui-box {
     position: relative;
-    display: -moz-inline-box !important;
-    display: inline-block !important;
+    display: inline-block;
     vertical-align: top;
 }
 
@@ -70,8 +77,9 @@
 
 .edui-hg .edui-popup .edui-bordereraser {
     position: absolute;
-    //overflow: hidden;
-    &:before {
+    z-index: 1000;
+
+    &::before {
         position: absolute;
         top: -1.25em;
         left: 0.75em;
@@ -119,8 +127,8 @@
 
 /*UI工具栏、编辑区域、底部*/
 .edui-editor {
-    border: 1px solid #ccc;
-    background-color: #fff;
+    border: @edui-editor-border;
+    background-color: @edui-editor-bgc;
     position: relative;
     overflow: visible;
 }
@@ -162,15 +170,15 @@
         > .edui-box {
             margin: @btn-margin;
             color: @btn-color;
+            background-color: @btn-bg-color;
         }
-
-        > .edui-box:not(.edui-separator):nth-child(odd) {
+        /*> .edui-box:not(.edui-separator):nth-child(odd) {
             background-color: @btn-bg-color;
         }
 
         > .edui-box:not(.edui-separator):nth-child(even) {
             background-color: @btn-bg-hover;
-        }
+        }*/
     }
 }
 
@@ -191,10 +199,9 @@
 
         td {
             white-space: nowrap;
-            border-top: 1px solid #ccc;
+            border-top: @edui-editor-bottom-border;
             line-height: 20px;
-            font-size: 12px;
-            //font-family: Arial, Helvetica, Tahoma, Verdana, Sans-Serif;
+            font-size: 0.75em;
         }
     }
 
@@ -212,7 +219,6 @@
             width: 100%;
             height: 12px;
             margin-top: 10px;
-            background: url(../images/scale.png) no-repeat;
             cursor: se-resize;
         }
     }
@@ -231,11 +237,10 @@
 /* 提示气泡 */
 .edui-bubble {
     .edui-popup-content {
-        border: 1px solid #DCAC6C;
-        background-color: #fff6d9;
+        border: @border;
+        background-color: @btn-bg-color;
         padding: 5px;
-        font-size: 10pt;
-        font-family: "宋体";
+        font-size: 0.75em;
     }
 }
 
@@ -318,10 +323,11 @@
     .edui-colorlump {
         position: absolute;
         overflow: hidden;
-        bottom: 1px;
-        left: 1px;
-        width: 18px;
-        height: 4px;
+        bottom: 0;
+        left: 0.125em;
+        right: 0.125em;
+        height: 3px;
+        opacity: 0.8;
     }
 }
 
@@ -329,7 +335,7 @@
 .edui-for-emotion {
     .edui-popup-content iframe {
         width: 514px;
-        height: 380px;
+        height: 355px;
         overflow: hidden;
     }
 
@@ -341,20 +347,23 @@
     .edui-splitborder {
         display: none;
     }
-
-    .edui-splitbutton-body .edui-arrow {
+    /*.edui-splitbutton-body .edui-arrow {
         width: 0;
     }
-
-    .edui-state-active .edui-splitborder {
+        .edui-state-active .edui-splitborder {
         border-left: 1px solid transparent;
-    }
+    }*/
 }
 
 /* 解决嵌套导致的图标问题 */
-.edui-for-insertorderedlist, .edui-for-lineheight, .edui-for-rowspacingtop, .edui-for-rowspacingbottom, .edui-for-insertunorderedlist {
+.edui-for-insertorderedlist,
+.edui-for-lineheight,
+.edui-for-rowspacingtop,
+.edui-for-rowspacingbottom,
+.edui-for-insertunorderedlist {
     .edui-popup-body {
         .edui-icon {
+            content: '';
             background-image: none;
         }
     }

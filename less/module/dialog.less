@@ -40,6 +40,8 @@
 }
 
 .edui-dialog-titlebar {
+    font-size: 1em;
+    line-height: 1.5;
     cursor: move;
     position: relative;
     padding: @dialoag-title-padding;
@@ -48,7 +50,6 @@
 
 .edui-dialog-caption {
     font-weight: bold;
-    font-size: 12px;
 }
 
 .edui-dialog-draghandle {
@@ -56,17 +57,30 @@
 
 .edui-dialog-closebutton {
     position: absolute !important;
-    right: 5px;
-    top: 3px;
+    top: 0.75em;
+    right: 0.75em;
 
     .edui-button-body {
-        height: 20px;
-        width: 20px;
         cursor: pointer;
+
+        .edui-icon {
+            font-size: 0.5em;
+            padding: 0.5em;
+            color: #fff;
+            background-color: #ccc;
+            border-radius: 2em;
+
+            &::before {
+                content: @icon-close-content;
+            }
+        }
     }
 
     .edui-state-hover {
         .edui-button-body {
+            .edui-icon {
+                background-color: #808080;
+            }
         }
     }
 }
@@ -74,30 +88,44 @@
 .edui-dialog-buttons {
     overflow: hidden;
 
-    .edui-label {
-    }
-
     .edui-button {
         float: right;
         margin-left: 1em;
+
+        &.edui-okbutton {
+            .edui-button-body {
+                color: @dialog-footer-btn-ok-color;
+                background-color: @dialog-footer-btn-ok-bg;
+
+                &:hover {
+                    background-color: darken(@dialog-footer-btn-ok-bg, 20%);
+                }
+
+                &:active {
+                    background-color: darken(@dialog-footer-btn-ok-bg, 10%);
+                }
+            }
+        }
 
         .edui-button-body {
             font-size: @dialoag-footer-btn-font-size;
             padding: @dialoag-footer-btn-padding;
             background-color: @dialoag-footer-btn-bg;
+            border-radius: 0.25em;
             text-align: center;
             cursor: default;
-        }
+            transition: background-color 0.3s ease-in-out;
 
-        .edui-state-hover {
-            .edui-button-body {
+            &:hover {
+                background-color: darken(@dialoag-footer-btn-bg, 20%);
+            }
+
+            &:active {
                 background-color: darken(@dialoag-footer-btn-bg, 10%);
             }
-        }
 
-        .edui-state-active {
-            .edui-button-body {
-                background-color: darken(@dialoag-footer-btn-bg, 5%);
+            .edui-icon {
+                display: none !important;
             }
         }
     }
