@@ -1,0 +1,230 @@
+@import '../var';
+
+/* LIST */
+.edui-list {
+    /*.edui-bordereraser {
+        display: none;
+    }*/
+    .edui-state-hover {
+        position: relative;
+        background-color: @btn-bg-color;
+        border-color: @border-hover-color;
+    }
+
+    .edui-listitem {
+        border: @border;
+        white-space: nowrap;
+
+        .edui-listitem-label {
+            font-size: 0.75em;
+            padding: 0.5em;
+        }
+    }
+}
+
+/* MENU */
+.edui-menu {
+    z-index: 3000;
+
+    &.edui-popup {
+        margin-top: 0;
+    }
+
+    .edui-hassubmenu {
+        .edui-arrow {
+            height: 1em;
+            width: 1em;
+            float: right;
+        }
+    }
+
+    .edui-menu-body {
+        min-width: @menu-body-minwidth;
+
+        .edui-menuitem:not(.edui-menuseparator) {
+            padding: @menu-item-padding;
+            cursor: default;
+            vertical-align: top;
+            border: @border;
+
+            &.edui-state-hover {
+                background-color: @menu-item-hover-bg;
+                border-color: @border-hover-color;
+            }
+
+            .edui-menuitem-body {
+                line-height: 1;
+            }
+
+            .edui-icon {
+                width: 1em;
+                height: 1em;
+                top: 0.125em;
+            }
+
+            .edui-label {
+                font-size: 0.8em;
+                line-height: 1.5;
+                padding-left: 10px;
+            }
+        }
+    }
+
+    .edui-menuseparator {
+        margin: 2px 0;
+        height: 1px;
+        overflow: hidden;
+
+        .edui-menuseparator-inner {
+            border-bottom: 1px solid #e2e3e3;
+            margin-left: 2em;
+        }
+    }
+}
+
+/* COMBOX */
+.edui-combox {
+
+    .edui-combox-body {
+        border: @border;
+        padding: @btn-padding;
+
+        .edui-button-body {
+            white-space: nowrap;
+            width: @btn-combox-width;
+            line-height: @btn-combox-line-height;
+            font-size: @btn-combox-font-size;
+            margin-right: @btn-padding;
+        }
+
+        .edui-arrow {
+            position: relative;
+
+            &:before {
+                position: relative;
+                content: '';
+                display: block;
+                width: 0;
+                height: 0;
+                top: 0.1em;
+                border: 0.4em solid transparent;
+                border-right-color: @arrow-color;
+            }
+            /*width: 9px;
+            height: 1em;*/
+        }
+
+        .edui-splitborder {
+            display: none;
+        }
+    }
+}
+
+
+.edui-for-fontfamily .edui-listitem-label {
+    min-width: 130px;
+}
+
+.edui-for-insertcode .edui-listitem-label {
+    min-width: 120px;
+}
+
+.edui-for-underline .edui-listitem-label {
+    min-width: 120px;
+}
+
+.edui-for-fontsize .edui-listitem-label {
+    padding: 10px !important;
+    min-width: 100px;
+}
+
+.edui-for-paragraph .edui-listitem-label {
+    min-width: 120px;
+}
+
+.edui-for-rowspacingtop,
+.edui-for-rowspacingbottom {
+    .edui-listitem-label {
+        min-width: 53px;
+    }
+}
+
+.edui-for-lineheight .edui-listitem-label {
+    min-width: 53px;
+}
+
+.edui-for-customstyle .edui-listitem-label {
+    min-width: 120px;
+}
+
+
+/* STATE */
+
+.edui-state-checked {
+    .edui-combox-body {
+        background-color: @btn-bg-checked;
+        border-color: @border-checked-color;
+    }
+
+    .edui-combox-body .edui-arrow {
+        //border-left: 1px solid #DCAC6C;
+    }
+}
+
+.edui-state-disabled {
+
+    .edui-label {
+        color: #ccc;
+    }
+
+    .edui-icon, .edui-arrow {
+        opacity: 0.3;
+    }
+
+    .edui-menuitem-label {
+        color: gray;
+    }
+
+    .edui-combox-body {
+        opacity: 0.3;
+    }
+}
+
+.edui-state-hover {
+    .edui-combox-body {
+        background-color: @btn-bg-hover;
+        border-color: @border-hover-color;
+
+        .edui-arrow {
+            //border-left: 1px solid #dcac6c;
+        }
+    }
+
+    .edui-splitborder {
+        width: 1px;
+        //border-left: 0 solid #dcac6c;
+    }
+}
+
+.edui-state-opened {
+    .edui-combox-body {
+
+        .edui-arrow:before {
+            top: 0.35em;
+            border-right-color: transparent;
+            border-top-color: @arrow-color;
+        }
+    }
+
+    .edui-splitborder {
+        width: 1px;
+        border: 0;
+    }
+}
+
+.edui-state-active {
+    .edui-splitborder {
+        //width: 0;
+        //border-left: 1px solid #dcac6c;
+    }
+}
